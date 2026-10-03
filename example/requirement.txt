@@ -1,0 +1,13 @@
+Feature: Password reset
+
+As a user, I want to request a password reset by email, so that I can
+regain access to my account without contacting support.
+
+Acceptance criteria:
+1. Given a registered email, when the user requests a reset, a reset
+   token is generated and an email is sent containing a reset link.
+2. The reset token must expire after 30 minutes.
+3. Given an expired or already-used token, the reset endpoint must reject
+   the request with an error, without revealing whether the email exists.
+4. Given a valid token and a new password, the password is updated and
+   the token is invalidated so it cannot be reused.

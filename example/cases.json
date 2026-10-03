@@ -1,0 +1,18 @@
+[
+  {
+    "name": "request_reset_generates_token_for_registered_email",
+    "description": "Calls PasswordResetService.request_reset(email) and asserts a non-empty token string is returned."
+  },
+  {
+    "name": "reset_password_with_valid_token_updates_and_invalidates",
+    "description": "Calls request_reset to get a token, then reset_password(token, new_password) and asserts it returns True; calling reset_password again with the same token asserts it returns False."
+  },
+  {
+    "name": "reset_password_with_unknown_token_is_rejected",
+    "description": "Calls reset_password('not-a-real-token', 'x') and asserts it returns False."
+  },
+  {
+    "name": "reset_password_locks_account_after_three_failed_attempts",
+    "description": "Calls PasswordResetService.lock_account_after_attempts(email, 3) and asserts the account is locked."
+  }
+]
